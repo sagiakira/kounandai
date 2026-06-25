@@ -18,6 +18,7 @@
     .logo-sub  { font-size: 11px; color: #B5D4F4; }
     .site-nav a { color: #B5D4F4; font-size: 13px; padding: 6px 10px; border-radius: 6px; text-decoration: none; }
     .site-nav a:hover { color: #fff; background: rgba(255,255,255,.12); }
+    .site-nav a i { font-size: 14px; }
 
     /* ===== HERO ===== */
     .hero { background: linear-gradient(135deg, #E6F1FB 0%, #B5D4F4 60%, #85B7EB 100%); padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
@@ -27,15 +28,25 @@
     .sport-icon { width: 72px; height: 72px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #85B7EB; flex-shrink: 0; }
     .sport-icon i { font-size: 32px; color: #185FA5; }
     .sport-sep  { font-size: 20px; color: #378ADD; font-weight: 500; }
+    .btn-contact { display: inline-flex; align-items: center; gap: 8px; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 22px; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; }
+    .btn-contact:hover { background: #0C447C; color: #fff; }
+    .btn-contact i { font-size: 16px; }
 
     /* ===== INFO BAR ===== */
-    .info-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
+    .info-bar { display: grid; grid-template-columns: 1fr 1.6fr 1fr; border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
     .info-card { padding: 1.25rem 1.5rem; border-right: 1px solid #dee2e6; }
     .info-card:last-child { border-right: none; }
     .info-label { font-size: 11px; color: #185FA5; font-weight: 500; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
     .info-label i { font-size: 14px; }
     .info-value { font-size: 14px; color: #042C53; line-height: 1.6; }
     .info-value strong { font-size: 16px; font-weight: 500; }
+    .access-mini { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
+    .access-mini-item { font-size: 12px; color: #042C53; display: flex; align-items: flex-start; gap: 5px; }
+    .access-mini-item i { color: #185FA5; font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+    .fee-mini { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+    .fee-mini-item { font-size: 12px; color: #042C53; display: flex; align-items: flex-start; gap: 5px; line-height: 1.5; }
+    .fee-mini-item i { font-size: 13px; margin-top: 1px; flex-shrink: 0; }
+    .fee-mini-item.warn { color: #633806; }
 
     /* ===== SECTION ===== */
     .section { padding: 2rem; }
@@ -63,6 +74,15 @@
     .suspension-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
     .suspension-box ul li { font-size: 12px; color: #633806; line-height: 1.6; display: flex; align-items: flex-start; gap: 6px; }
     .suspension-box ul li::before { content:'・'; color: #BA7517; flex-shrink: 0; }
+
+    /* ===== SCHOOL BOX ===== */
+    .school-box { background: #E6F1FB; border: 0.5px solid #B5D4F4; border-radius: 8px; padding: 12px 14px; margin-top: 12px; }
+    .school-box .s-title { font-size: 12px; font-weight: 500; color: #042C53; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .school-box .s-title i { color: #185FA5; font-size: 15px; }
+    .school-box .school-lead { font-size: 12px; color: #185FA5; line-height: 1.6; margin: 0 0 8px 0; }
+    .school-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
+    .school-box ul li { font-size: 12px; color: #042C53; line-height: 1.6; display: flex; align-items: flex-start; gap: 6px; }
+    .school-box ul li::before { content:'・'; color: #185FA5; flex-shrink: 0; }
 
     /* ===== FEE BOX ===== */
     .fee-box { background: #E6F1FB; border-radius: 8px; padding: 1.25rem; }
@@ -122,6 +142,56 @@
 
     /* two-col grid */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    /* テーブルをスマホでも横スクロールできるように */
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* ===== レスポンシブ（タブレット：992px以下） ===== */
+    @media (max-width: 992px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ===== レスポンシブ（スマホ：768px以下） ===== */
+    @media (max-width: 768px) {
+      .site-header { flex-wrap: wrap; height: auto; padding: 12px 1rem; gap: 8px; }
+      .site-nav { width: 100%; display: flex; flex-wrap: wrap; gap: 2px; justify-content: flex-start; }
+      .site-nav a { font-size: 12px; padding: 5px 8px; }
+      .logo-name { font-size: 14px; }
+      .logo-sub { font-size: 10px; }
+
+      .hero { flex-direction: column; align-items: flex-start; padding: 1.75rem 1.25rem; gap: 1.25rem; }
+      .hero-title { font-size: 20px; }
+      .hero-desc { font-size: 13px; }
+      .btn-contact { font-size: 13px; padding: 9px 18px; width: 100%; justify-content: center; }
+      .hero-icons { align-self: center; }
+
+      .info-bar { grid-template-columns: 1fr; }
+      .info-card { border-right: none; border-bottom: 1px solid #dee2e6; padding: 1rem 1.25rem; }
+      .info-card:last-child { border-bottom: none; }
+      .access-mini-item { font-size: 11.5px; }
+
+      .section { padding: 1.5rem 1.25rem; }
+      .section-divider { margin: 0 1.25rem; }
+      .section-title { font-size: 15px; }
+
+      .flow-content { padding-bottom: 16px; }
+      .flow-desc { font-size: 11.5px; }
+
+      .fee-amount { font-size: 28px; }
+
+      .member-table { font-size: 12px; }
+      .member-table th, .member-table td { padding: 7px 10px; white-space: nowrap; }
+
+      .site-footer { flex-direction: column; gap: 10px; text-align: center; padding: 1.25rem 1rem; }
+    }
+
+    /* ===== レスポンシブ（小型スマホ：480px以下） ===== */
+    @media (max-width: 480px) {
+      .hero-title { font-size: 18px; }
+      .sport-icon { width: 56px; height: 56px; }
+      .sport-icon i { font-size: 24px; }
+      .fee-amount { font-size: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -137,11 +207,10 @@
       <div class="logo-sub">港南台第一中学校 体育館</div>
     </div>
   </div>
-  <nav class="site-nav d-flex gap-1">
+  <nav class="site-nav d-flex gap-1 align-items-center">
     <a href="#about">サークル紹介</a>
     <a href="#flow">活動について</a>
-    <a href="#access">アクセス</a>
-    <a href="#join">入会案内</a>
+    <a href="mailto:mejiro.kounandai@gmail.com" class="d-flex align-items-center gap-1"><i class="ti ti-mail"></i>お問い合わせ</a>
   </nav>
 </header>
 
@@ -151,8 +220,9 @@
     <div class="hero-badge">新メンバー随時募集中</div>
     <h1 class="hero-title">卓球もバドミントンも<br>年齢・経験不問で楽しもう</h1>
     <p class="hero-desc">毎週土曜の夜、港南台に集まって<br>好きな種目を自由に楽しんでいます。</p>
+    <a href="mailto:mejiro.kounandai@gmail.com" class="btn-contact"><i class="ti ti-mail"></i>お問い合わせ</a>
   </div>
-  <div class="d-flex align-items-center gap-3">
+  <div class="d-flex align-items-center gap-3 hero-icons">
     <div class="sport-icon"><i class="ti ti-ping-pong"></i></div>
     <div class="sport-sep">&amp;</div>
     <div class="sport-icon"><i class="ti ti-feather"></i></div>
@@ -166,24 +236,36 @@
     <div class="info-value"><strong>毎週土曜日</strong><br>18:30 〜 21:00</div>
   </div>
   <div class="info-card">
-    <div class="info-label"><i class="ti ti-map-pin"></i>練習場所</div>
-    <div class="info-value"><strong>港南台第一中学校</strong><br>体育館</div>
+    <div class="info-label"><i class="ti ti-map-pin"></i>練習場所・アクセス</div>
+    <div class="info-value">
+      <strong>港南台第一中学校</strong> 体育館<br>
+      <small style="color:#378ADD;">〒234-0054 神奈川県横浜市港南区港南台6-6-1</small>
+      <div class="access-mini">
+        <div class="access-mini-item"><i class="ti ti-train"></i>JR根岸線「港南台」駅より徒歩約10分</div>
+        <div class="access-mini-item"><i class="ti ti-car"></i>駐車場あり（約10台・無料）</div>
+      </div>
+    </div>
   </div>
   <div class="info-card">
-    <div class="info-label"><i class="ti ti-coin"></i>参加費</div>
-    <div class="info-value"><strong>100円</strong><br>1回・1人あたり</div>
+    <div class="info-label"><i class="ti ti-coin"></i>参加費・持ち物</div>
+    <div class="info-value">
+      <strong>100円</strong> / 1回・1人あたり
+      <div class="fee-mini">
+        <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>入会金・月会費なし。来た日だけ支払えばOK</div>
+        <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>ボール・シャトルは部専用のものを使用（持参不要）</div>
+        <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>ラケットは各自ご持参ください（貸し出しなし）</div>
+        <div class="fee-mini-item warn"><i class="ti ti-shield-off"></i>スポーツ保険未加入。備品の破損・怪我等は自己責任でお願いします</div>
+        <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>18歳未満の方は保護者同伴が必要です</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr class="section-divider">
 
-<!-- ===== 活動の流れ + 費用 ===== -->
+<!-- ===== 活動の流れ ===== -->
 <section class="section" id="flow">
-  <div class="two-col">
-
-    <!-- 活動の流れ -->
-    <div>
-      <h2 class="section-title"><i class="ti ti-list-check"></i>活動の流れ</h2>
+    <h2 class="section-title"><i class="ti ti-list-check"></i>活動の流れ</h2>
       <div class="flow-list">
         <div class="flow-item">
           <div class="flow-left"><div class="flow-circle">①</div><div class="flow-line"></div></div>
@@ -227,47 +309,22 @@
           <li>鍵担当4名が全員不参加の場合</li>
         </ul>
       </div>
-    </div>
 
-    <!-- 費用・持ち物 -->
-    <div id="join">
-      <h2 class="section-title"><i class="ti ti-coin"></i>費用・持ち物</h2>
-      <div class="fee-box">
-        <div class="fee-main">
-          <div class="fee-label">参加費</div>
-          <div class="fee-amount">¥100</div>
-          <div class="fee-unit">1回・1人あたり</div>
-        </div>
-        <div class="fee-divider"></div>
-        <div class="fee-notes">
-          <div class="fee-note"><i class="ti ti-check" style="color:#3B6D11;"></i>入会金・月会費なし。来た日だけ支払えばOK</div>
-          <div class="fee-note"><i class="ti ti-check" style="color:#3B6D11;"></i>ボール・シャトルは部専用のものを使用（持参不要）</div>
-          <div class="fee-note"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>ラケットは各自ご持参ください（貸し出しなし）</div>
-          <div class="fee-note warn"><i class="ti ti-shield-off"></i>スポーツ保険未加入。備品の破損・怪我等は自己責任でお願いします</div>
-          <div class="fee-note"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>18歳未満の方は保護者同伴が必要です</div>
-        </div>
+      <div class="school-box">
+        <div class="s-title"><i class="ti ti-school"></i>学校開放事業について</div>
+        <p class="school-lead">当部は港南台第一中学校の「学校施設開放事業」を利用して活動しています。利用にあたっては以下の点にご注意ください。</p>
+        <ul>
+          <li>体育館以外の校舎・教室等への立ち入りは禁止です</li>
+          <li>使用できるのは指定された体育館エリアのみです</li>
+          <li>学校施設・備品は丁寧に扱い、破損のないようご利用ください</li>
+          <li>近隣にお住まいの方への配慮のため、大声・大きな音は控えてください</li>
+          <li>駐車の際は指定された区画内に駐車し、通行の妨げにならないようご協力ください</li>
+          <li>校内で生徒や教職員の方と会った際は、迷惑にならないよう配慮してください</li>
+        </ul>
       </div>
-      <div class="notice-red">
-        <i class="ti ti-info-circle"></i>
-        <span>参加費を抑えるためスポーツ保険には加入していません。ご理解のうえご参加ください。</span>
-      </div>
-    </div>
-
-  </div>
 </section>
 
-<hr class="section-divider">
 
-<!-- ===== アクセス ===== -->
-<section class="section" id="access">
-  <h2 class="section-title"><i class="ti ti-map-2"></i>アクセス</h2>
-  <div class="access-box">
-    <div class="access-item"><i class="ti ti-building"></i><span>港南台第一中学校 体育館<small>〒234-0054 神奈川県横浜市港南区港南台6-6-1</small></span></div>
-    <div class="access-item"><i class="ti ti-train"></i><span>JR根岸線「港南台」駅より徒歩約10分</span></div>
-    <div class="access-item"><i class="ti ti-car"></i><span>駐車場あり（約10台・無料）</span></div>
-    <div class="access-item"><i class="ti ti-clock"></i><span>活動時間：毎週土曜 18:30〜21:00</span></div>
-  </div>
-</section>
 
 <!-- ===== MEMBER PAGE (hidden / triple-tap) ===== -->
 <div id="member-page">
@@ -275,6 +332,7 @@
     <h2 class="section-title" style="margin-bottom:0;"><i class="ti ti-id-badge"></i>メンバー一覧</h2>
     <button class="close-btn" onclick="closeMember()"><i class="ti ti-x"></i>閉じる</button>
   </div>
+  <div class="table-scroll">
   <table class="member-table">
     <thead>
       <tr>
@@ -305,6 +363,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 
   <div class="suspension-box" style="margin-top:14px;">
     <div class="s-title"><i class="ti ti-alert-triangle"></i>活動休止となる場合</div>
@@ -320,10 +379,9 @@
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <span class="ft-text">© 2025 めじろ卓球・バドミントン部. 港南台第一中学校</span>
-  <div class="d-flex gap-3">
+  <div class="d-flex gap-3 align-items-center">
     <a href="#flow">活動について</a>
-    <a href="#access">アクセス</a>
-    <a href="#join">入会案内</a>
+    <a href="mailto:mejiro.kounandai@gmail.com" class="d-flex align-items-center gap-1"><i class="ti ti-mail"></i>お問い合わせ</a>
   </div>
 </footer>
 
