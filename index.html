@@ -6,6 +6,7 @@
   <title>めじろ卓球・バドミントン部</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <script src="config.js"></script>
   <style>
     body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; background: #fff; margin: 0; }
 
@@ -63,6 +64,7 @@
     .flow-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
     .flow-circle { width: 36px; height: 36px; border-radius: 50%; background: #185FA5; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
     .flow-circle.end { background: #378ADD; }
+    .flow-circle.pre { background: #8A8A8A; }
     .flow-line { width: 2px; background: #B5D4F4; flex: 1; min-height: 16px; }
     .flow-item:last-child .flow-line { display: none; }
     .flow-content { padding: 4px 0 20px 12px; flex: 1; }
@@ -295,7 +297,15 @@
     <h2 class="section-title"><i class="ti ti-list-check"></i>活動の流れ</h2>
       <div class="flow-list">
         <div class="flow-item">
-          <div class="flow-left"><div class="flow-circle">①</div><div class="flow-line"></div></div>
+          <div class="flow-left"><div class="flow-circle pre">①</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-time">〜前日まで</div>
+            <div class="flow-title">参加人数の確認</div>
+            <div class="flow-desc">LINEスケジュールで参加人数を確認して開催可否を決定。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-left"><div class="flow-circle">②</div><div class="flow-line"></div></div>
           <div class="flow-content">
             <div class="flow-time">18:30〜</div>
             <div class="flow-title">開錠・準備開始</div>
@@ -303,7 +313,7 @@
           </div>
         </div>
         <div class="flow-item">
-          <div class="flow-left"><div class="flow-circle">②</div><div class="flow-line"></div></div>
+          <div class="flow-left"><div class="flow-circle">③</div><div class="flow-line"></div></div>
           <div class="flow-content">
             <div class="flow-time">開錠後</div>
             <div class="flow-title">場所の準備</div>
@@ -311,7 +321,7 @@
           </div>
         </div>
         <div class="flow-item">
-          <div class="flow-left"><div class="flow-circle">③</div><div class="flow-line"></div></div>
+          <div class="flow-left"><div class="flow-circle">④</div><div class="flow-line"></div></div>
           <div class="flow-content">
             <div class="flow-time">準備完了後〜20:45</div>
             <div class="flow-title">自由練習</div>
@@ -319,7 +329,7 @@
           </div>
         </div>
         <div class="flow-item">
-          <div class="flow-left"><div class="flow-circle end">④</div><div class="flow-line"></div></div>
+          <div class="flow-left"><div class="flow-circle end">⑤</div><div class="flow-line"></div></div>
           <div class="flow-content">
             <div class="flow-time">20:45〜21:00</div>
             <div class="flow-title">清掃・施錠</div>
@@ -423,8 +433,6 @@
     }
   }
 
-  var MEMBER_PASSWORD = 'ppap';
-
   function openPasswordPrompt() {
     document.getElementById('pw-modal').classList.add('show');
     document.getElementById('pw-input').value = '';
@@ -436,9 +444,18 @@
     document.getElementById('pw-modal').classList.remove('show');
   }
 
-  function checkPassword() {
+  async function sha256Hex(text) {
+    var enc = new TextEncoder().encode(text);
+    var buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(function (b) {
+      return b.toString(16).padStart(2, '0');
+    }).join('');
+  }
+
+  async function checkPassword() {
     var val = document.getElementById('pw-input').value;
-    if (val === MEMBER_PASSWORD) {
+    var inputHash = await sha256Hex(val);
+    if (typeof MEMBER_PASSWORD_HASH !== 'undefined' && inputHash === MEMBER_PASSWORD_HASH) {
       closePasswordPrompt();
       var page = document.getElementById('member-page');
       page.classList.add('visible');
