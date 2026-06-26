@@ -21,28 +21,29 @@
     .site-nav a i { font-size: 14px; }
 
     /* ===== HERO ===== */
-    .hero { background: linear-gradient(135deg, #E6F1FB 0%, #B5D4F4 60%, #85B7EB 100%); padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .hero { background: linear-gradient(135deg, #E6F1FB 0%, #B5D4F4 60%, #85B7EB 100%); padding: 2.5rem 2rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+    .hero-text { flex: 1; min-width: 280px; }
     .hero-badge { display: inline-block; background: #185FA5; color: #fff; font-size: 11px; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
     .hero-title { font-size: 24px; font-weight: 500; color: #042C53; line-height: 1.4; margin-bottom: .75rem; }
     .hero-desc  { font-size: 14px; color: #185FA5; line-height: 1.7; }
-    .sport-icon { width: 72px; height: 72px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #85B7EB; flex-shrink: 0; }
-    .sport-icon i { font-size: 32px; color: #185FA5; }
-    .sport-sep  { font-size: 20px; color: #378ADD; font-weight: 500; }
-    .btn-contact { display: inline-flex; align-items: center; gap: 8px; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 22px; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; }
-    .btn-contact:hover { background: #0C447C; color: #fff; }
-    .btn-contact i { font-size: 16px; }
-
-    /* ===== INFO BAR ===== */
-    .info-bar { display: grid; grid-template-columns: 1fr 1.6fr 1fr; border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; }
-    .info-card { padding: 1.25rem 1.5rem; border-right: 1px solid #dee2e6; }
-    .info-card:last-child { border-right: none; }
+    .hero-info { flex: 1.4; min-width: 320px; display: flex; flex-direction: column; gap: 12px; }
+    .hero-info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-info .info-card { background: #fff; border-radius: 10px; padding: 1rem 1.25rem; border: none; box-shadow: 0 2px 8px rgba(4,44,83,.08); }
+    .fee-highlight { font-size: 30px; font-weight: 700; color: #185FA5; }
+    .fee-highlight-unit { font-size: 12px; color: #378ADD; }
+    .fee-mini-item.danger { color: #A32D2D; font-weight: 500; }
+    .fee-mini-item.danger i { color: #A32D2D; }
     .info-label { font-size: 11px; color: #185FA5; font-weight: 500; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
     .info-label i { font-size: 14px; }
     .info-value { font-size: 14px; color: #042C53; line-height: 1.6; }
     .info-value strong { font-size: 16px; font-weight: 500; }
+    .btn-contact { display: inline-flex; align-items: center; gap: 8px; background: #185FA5; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 22px; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; }
+    .btn-contact:hover { background: #0C447C; color: #fff; }
+    .btn-contact i { font-size: 16px; }
+
     .access-mini { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
-    .access-mini-item { font-size: 12px; color: #042C53; display: flex; align-items: flex-start; gap: 5px; }
-    .access-mini-item i { color: #185FA5; font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+    .access-mini-item { font-size: 12px; color: #042C53; line-height: 1.6; }
+    .access-mini-item i { color: #185FA5; font-size: 14px; margin-right: 5px; }
     .access-link { color: #185FA5; text-decoration: underline; }
     .access-link:hover { color: #0C447C; }
     .fee-mini { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
@@ -166,6 +167,8 @@
     /* ===== レスポンシブ（タブレット：992px以下） ===== */
     @media (max-width: 992px) {
       .two-col { grid-template-columns: 1fr; }
+      .hero { flex-wrap: wrap; }
+      .hero-text, .hero-info { flex-basis: 100%; }
     }
 
     /* ===== レスポンシブ（スマホ：768px以下） ===== */
@@ -176,15 +179,14 @@
       .logo-name { font-size: 14px; }
       .logo-sub { font-size: 10px; }
 
-      .hero { flex-direction: column; align-items: flex-start; padding: 1.75rem 1.25rem; gap: 1.25rem; }
+      .hero { flex-direction: column; align-items: stretch; padding: 1.75rem 1.25rem; gap: 1.25rem; }
       .hero-title { font-size: 20px; }
       .hero-desc { font-size: 13px; }
       .btn-contact { font-size: 13px; padding: 9px 18px; width: 100%; justify-content: center; }
-      .hero-icons { align-self: center; }
-
-      .info-bar { grid-template-columns: 1fr; }
-      .info-card { border-right: none; border-bottom: 1px solid #dee2e6; padding: 1rem 1.25rem; }
-      .info-card:last-child { border-bottom: none; }
+      .hero-info { min-width: 0; }
+      .hero-info-row { grid-template-columns: 1fr; }
+      .hero-info .info-card { padding: .9rem 1rem; }
+      .fee-highlight { font-size: 26px; }
       .access-mini-item { font-size: 11.5px; }
 
       .section { padding: 1.5rem 1.25rem; }
@@ -205,8 +207,6 @@
     /* ===== レスポンシブ（小型スマホ：480px以下） ===== */
     @media (max-width: 480px) {
       .hero-title { font-size: 18px; }
-      .sport-icon { width: 56px; height: 56px; }
-      .sport-icon i { font-size: 24px; }
       .fee-amount { font-size: 24px; }
     }
   </style>
@@ -253,45 +253,40 @@
     <p class="hero-desc">毎週土曜の夜、港南台に集まって<br>好きな種目を自由に楽しんでいます。</p>
     <a href="mailto:mejiro.kounandai@gmail.com" class="btn-contact"><i class="ti ti-mail"></i>お問い合わせ</a>
   </div>
-  <div class="d-flex align-items-center gap-3 hero-icons">
-    <div class="sport-icon"><i class="ti ti-ping-pong"></i></div>
-    <div class="sport-sep">&amp;</div>
-    <div class="sport-icon"><i class="ti ti-feather"></i></div>
+  <div class="hero-info">
+    <div class="info-card fee-card-top">
+      <div class="info-label"><i class="ti ti-coin"></i>参加費・持ち物</div>
+      <div class="info-value">
+        <span class="fee-highlight">100円</span> <span class="fee-highlight-unit">/ 1回・1人あたり</span>
+        <div class="fee-mini">
+          <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>入会金・月会費なし。来た日だけ支払えばOK</div>
+          <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>ボール・シャトルは部専用のものを使用（持参不要）</div>
+          <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>ラケットは各自ご持参ください（貸し出しなし）</div>
+          <div class="fee-mini-item danger"><i class="ti ti-shield-off"></i>スポーツ保険未加入。備品の破損・怪我等は自己責任でお願いします</div>
+          <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>18歳未満の方は保護者同伴が必要です</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-info-row">
+      <div class="info-card">
+        <div class="info-label"><i class="ti ti-calendar"></i>活動日時</div>
+        <div class="info-value"><strong>毎週土曜日</strong><br>18:30 〜 21:00</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label"><i class="ti ti-map-pin"></i>練習場所・アクセス</div>
+        <div class="info-value">
+          <strong>港南台第一中学校</strong> 体育館<br>
+          <small style="color:#378ADD;">〒234-0054 神奈川県横浜市港南区港南台6-6-1</small>
+          <div class="access-mini">
+            <div class="access-mini-item"><i class="ti ti-train"></i>JR根岸線「港南台」駅より徒歩約10分</div>
+            <div class="access-mini-item"><i class="ti ti-bus"></i>横浜市営バス111系統「<a href="https://navi.hamabus.city.yokohama.lg.jp/koutuu/pc/diagram/BusCourseSearch?busstopId=00090375" target="_blank" rel="noopener" class="access-link">港南台第一中学校前</a>」から徒歩約1分</div>
+            <div class="access-mini-item"><i class="ti ti-car"></i>駐車場あり（約10台・無料）</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- ===== INFO BAR ===== -->
-<div class="info-bar">
-  <div class="info-card">
-    <div class="info-label"><i class="ti ti-calendar"></i>活動日時</div>
-    <div class="info-value"><strong>毎週土曜日</strong><br>18:30 〜 21:00</div>
-  </div>
-  <div class="info-card">
-    <div class="info-label"><i class="ti ti-map-pin"></i>練習場所・アクセス</div>
-    <div class="info-value">
-      <strong>港南台第一中学校</strong> 体育館<br>
-      <small style="color:#378ADD;">〒234-0054 神奈川県横浜市港南区港南台6-6-1</small>
-      <div class="access-mini">
-        <div class="access-mini-item"><i class="ti ti-train"></i>JR根岸線「港南台」駅より徒歩約10分</div>
-        <div class="access-mini-item"><i class="ti ti-bus"></i>横浜市営バス111系統「<a href="https://navi.hamabus.city.yokohama.lg.jp/koutuu/pc/diagram/BusCourseSearch?busstopId=00090375" target="_blank" rel="noopener" class="access-link">港南台第一中学校前</a>」から徒歩約1分</div>
-        <div class="access-mini-item"><i class="ti ti-car"></i>駐車場あり（約10台・無料）</div>
-      </div>
-    </div>
-  </div>
-  <div class="info-card">
-    <div class="info-label"><i class="ti ti-coin"></i>参加費・持ち物</div>
-    <div class="info-value">
-      <strong>100円</strong> / 1回・1人あたり
-      <div class="fee-mini">
-        <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>入会金・月会費なし。来た日だけ支払えばOK</div>
-        <div class="fee-mini-item"><i class="ti ti-check" style="color:#3B6D11;"></i>ボール・シャトルは部専用のものを使用（持参不要）</div>
-        <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>ラケットは各自ご持参ください（貸し出しなし）</div>
-        <div class="fee-mini-item warn"><i class="ti ti-shield-off"></i>スポーツ保険未加入。備品の破損・怪我等は自己責任でお願いします</div>
-        <div class="fee-mini-item"><i class="ti ti-alert-circle" style="color:#BA7517;"></i>18歳未満の方は保護者同伴が必要です</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <hr class="section-divider">
 
@@ -344,7 +339,7 @@
 
       <div class="school-box">
         <div class="s-title"><i class="ti ti-school"></i>学校開放事業について</div>
-        <p class="school-lead">当部は港南台第一中学校の「学校施設開放事業」を利用して活動しています。利用にあたっては以下の点にご注意ください。</p>
+        <p class="school-lead">当部は横浜市の「<a href="https://www.city.yokohama.lg.jp/kurashi/kyodo-manabi/shogaigakushu/gakushu/kaiho/open.html" target="_blank" rel="noopener" class="access-link">学校開放事業</a>」を利用して活動しています。利用にあたっては以下の点にご注意ください。</p>
         <ul>
           <li>体育館以外の校舎・教室等への立ち入りは禁止です</li>
           <li>使用できるのは指定された体育館エリアのみです</li>
@@ -397,15 +392,8 @@
   </table>
   </div>
 
-  <div class="suspension-box" style="margin-top:14px;">
-    <div class="s-title"><i class="ti ti-alert-triangle"></i>活動休止となる場合</div>
-    <ul>
-      <li>学校行事が実施される場合</li>
-      <li>参加人数が少ない場合（各競技3人未満の目途）</li>
-      <li>鍵担当4名が全員不参加の場合</li>
-    </ul>
-  </div>
   <p class="member-note">※ このページはメンバー向けです。外部への共有はお控えください。</p>
+  <p class="member-note"><a href="https://schkaiho.city.yokohama.lg.jp/eshisetsu/menu/Welcome.cgi" target="_blank" rel="noopener" class="access-link"><i class="ti ti-external-link"></i> 学校開放管理システム</a></p>
 </div>
 
 <!-- ===== FOOTER ===== -->
